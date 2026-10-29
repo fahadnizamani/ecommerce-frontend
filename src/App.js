@@ -1,9 +1,11 @@
+import './App.css';
 import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 import Login from "./components/Login";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProductDetails from "./components/ProductDetails";
 
 function Layout() {
     const location = useLocation();
@@ -16,6 +18,11 @@ function Layout() {
                 <Route path="/products" element={
                     <ProtectedRoute>
                         <Products />
+                    </ProtectedRoute>
+                } />
+                <Route path="/products/:id" element={
+                    <ProtectedRoute>
+                        <ProductDetails />
                     </ProtectedRoute>
                 } />
                 <Route path="/cart" element={

@@ -10,17 +10,24 @@ function Navbar() {
     };
 
     return (
-        <div style={{ padding: "10px", background: "#eee" }}>
-            <Link to="/products" style={{ marginRight: "10px" }}>
-                Products
-            </Link>
+        <nav className="top-nav">
+            <div className="nav-inner">
+                <div className="nav-brand">
+                    <span className="nav-badge">E</span>
+                    <Link to="/products">ShopEase</Link>
+                </div>
 
-            <Link to="/cart" style={{ marginRight: "10px" }}>
-                Cart
-            </Link>
+                <div className="nav-links">
+                    <Link to="/products">Products</Link>
+                    <Link to="/cart" className="cart-link">
+                        Cart
+                        <span className="cart-badge">0</span>
+                    </Link>
+                </div>
 
-            <button onClick={logout}>Logout</button>
-        </div>
+                <button className="logout-btn" onClick={logout}>Logout</button>
+            </div>
+        </nav>
     );
 }
 

@@ -18,7 +18,6 @@ function Login() {
             localStorage.setItem("token", res.data.accessToken);
             localStorage.setItem("refreshToken", res.data.refreshToken);
 
-
             alert("Login successful");
             navigate("/products");
         } catch (err) {
@@ -33,17 +32,40 @@ function Login() {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="login-page">
+            <div className="login-card">
+                <div className="login-brand">
+                    <span className="brand-badge">E</span>
+                    <h1>ShopEase</h1>
+                </div>
 
-            <input placeholder="Email"
-                   onChange={(e) => setEmail(e.target.value)} />
+                <h2>Welcome back</h2>
+                <p className="login-subtitle">Sign in to continue to your account</p>
 
-            <input type="password"
-                   placeholder="Password"
-                   onChange={(e) => setPassword(e.target.value)} />
+                <div className="login-form">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-            <button onClick={login}>Login</button>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                    {error && <div className="error-box">{error}</div>}
+
+                    <button onClick={login} className="login-button">Login</button>
+                </div>
+            </div>
         </div>
     );
 }
